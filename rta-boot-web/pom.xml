@@ -118,9 +118,6 @@
 	<modules>
 		<module>web-startup</module>
 		<module>web-starter</module>
-
-		<module>web-user</module>
-		<module>web-settings</module>
 	</modules>
 	<build>
 		<plugins>
