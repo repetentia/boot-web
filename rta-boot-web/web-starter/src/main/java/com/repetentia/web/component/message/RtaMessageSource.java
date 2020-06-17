@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Table(name="zt_message_source")
-public class GripMessageSource {
+public class RtaMessageSource {
 	@Id
 	@Column(name="page")
 	private String page;

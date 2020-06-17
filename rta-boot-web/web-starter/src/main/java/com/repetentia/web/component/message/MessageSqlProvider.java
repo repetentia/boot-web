@@ -7,10 +7,10 @@ import java.util.Set;
 
 import org.apache.ibatis.jdbc.SQL;
 
-import kr.co.ydns.grip.bootstrap.support.sql.SqlProviderUtils;
+import com.repetentia.support.sql.SqlProviderUtils;
 
 public class MessageSqlProvider {
-    private static final Class<GripMessageSource> clazz = GripMessageSource.class;
+    private static final Class<RtaMessageSource> clazz = RtaMessageSource.class;
 	public String findAll() {
 		SQL sql = new SQL();
 		String table = SqlProviderUtils.table(clazz);

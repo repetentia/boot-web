@@ -9,8 +9,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.support.AbstractMessageSource;
 
-import kr.co.ydns.grip.bootstrap.support.Marker;
-import kr.co.ydns.grip.bootstrap.support.reload.ReLoadable;
+import com.repetentia.support.log.Marker;
+import com.repetentia.support.reload.ReLoadable;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -38,7 +39,7 @@ public class DatabaseResourceBundleMessageSource extends AbstractMessageSource i
 
 	private void load() {
 		log.info(Marker.DATA_LOAD, "- Loading Messages from Database !!!");
-		List<GripMessageSource> list = sqlSession.getMapper(MessageMapper.class).findAll();
+		List<RtaMessageSource> list = sqlSession.getMapper(MessageMapper.class).findAll();
 		LocaleMessageHolder localeMessageHolder = new LocaleMessageHolder();
 		localeMessageHolder.load(list);
 		this.localeMessageHolder = localeMessageHolder;

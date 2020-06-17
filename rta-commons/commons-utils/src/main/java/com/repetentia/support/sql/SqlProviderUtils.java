@@ -1,4 +1,4 @@
-package com.repetentia.web.support.sql;
+package com.repetentia.support.sql;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import kr.co.ydns.grip.bootstrap.util.ReflectionUtils;
+import com.repetentia.utils.common.ReflectionUtils;
 
 public class SqlProviderUtils {
     
@@ -27,7 +27,7 @@ public class SqlProviderUtils {
     }
     
     public static  List<String> columns(Class<?> clazz) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         Field[] fields = ReflectionUtils.getDeclaredFields(clazz);
         for (Field field:fields) {
             StringBuilder sb = new StringBuilder();
@@ -47,7 +47,7 @@ public class SqlProviderUtils {
     }
     
     public static  List<String> keyColumns(Class<?> clazz, boolean isCondition) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         Field[] fields = ReflectionUtils.getDeclaredFields(clazz);
         for (Field field:fields) {
             StringBuilder sb = new StringBuilder();
@@ -89,7 +89,7 @@ public class SqlProviderUtils {
     }
     
     public static  <T> List<String> where(T t) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         Field[] fields = ReflectionUtils.getDeclaredFields(t.getClass());
         for (Field field:fields) {
             StringBuilder sb = new StringBuilder();

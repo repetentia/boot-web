@@ -36,9 +36,9 @@ public class LocaleMessageHolder {
 		return messagesHolder;
 	}
 	
-	public void load(List<GripMessageSource> list) {
+	public void load(List<RtaMessageSource> list) {
 		localeMessagesHolder.clear();
-		for (GripMessageSource message : list) {
+		for (RtaMessageSource message : list) {
 			final String locale = message.getLocale();
 			final ConcurrentMap<String, MessageFormat> messagesHolder = getMessagesHolderByLocale(locale);
 			MessageFormat messageFormat = new MessageFormat(message.getMessage());

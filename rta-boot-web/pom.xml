@@ -17,21 +17,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>2.3.0.RELEASE</version>
+				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
 		<dependency>
+			<groupId>com.repetentia.commons</groupId>
+			<artifactId>commons-utils</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<version>1.0.2.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>com.repetentia.commons</groupId>
-			<artifactId>commons-utils</artifactId>
-			<version>1.0.0</version>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>1.9.3</version>
 		</dependency>
+
 		<!-- 필요 디펜던시 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -116,8 +123,6 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>web-startup</module>
-		<module>web-starter</module>
 	</modules>
 	<build>
 		<plugins>
