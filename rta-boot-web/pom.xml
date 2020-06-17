@@ -125,6 +125,8 @@
 	<modules>
 		<module>web-starter</module>
 		<module>web-startup</module>
+		<module>pmd-setting</module>
+		<module>pmd-user</module>
 	</modules>
 	<build>
 		<plugins>
