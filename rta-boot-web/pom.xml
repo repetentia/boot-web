@@ -123,6 +123,8 @@
 		</dependency>
 	</dependencies>
 	<modules>
+		<module>web-starter</module>
+		<module>web-startup</module>
 	</modules>
 	<build>
 		<plugins>
