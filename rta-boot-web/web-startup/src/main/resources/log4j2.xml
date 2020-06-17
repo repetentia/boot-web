@@ -1,0 +1,40 @@
+<Configuration status="WARN">
+	<Appenders>
+		<RollingFile name="appLogFile" fileName="/home/web/log/grip.front.log" filePattern="/home/web/log/$${date:yyyy-MM}/web-%d{MM-dd}-%i.log">
+			<PatternLayout>
+				<Pattern>[%t] %d{HH:mm:ss.SSS} %-5level %logger{2} - %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="1 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="100">
+				<Delete basePath="/home/web/log" maxDepth="2">
+					<IfFileName glob="*/web*.log">
+						<IfLastModified age="30d">
+							<IfAny>
+								<IfAccumulatedFileSize exceeds="10 GB" />
+								<IfAccumulatedFileCount exceeds="10000" />
+							</IfAny>
+						</IfLastModified>
+					</IfFileName>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		<console name="console" target="SYSTEM_OUT">
+<!-- 			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{10} - %msg%n" /> -->
+			<PatternLayout disableAnsi="false" pattern="%d{ISO8601} %highlight{%-5level}[%style{%t}{blue}] %style{%C{1.}}{bright, magenta}: [%style{%marker}{bright,cyan}] %highlight{%msg%n%throwable}" />
+		</console>
+	</Appenders>
+	<Loggers>
+		<logger name="com.repetentia.web" level="debug" additivity="false">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="appLogFile" />
+		</logger>
+		<Root level="info">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="appLogFile" />
+		</Root>
+	</Loggers>
+
+</Configuration>

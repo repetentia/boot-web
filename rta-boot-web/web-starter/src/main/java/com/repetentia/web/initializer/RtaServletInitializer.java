@@ -27,7 +27,7 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 
 
-public abstract class GripServletInitializer implements WebApplicationInitializer {
+public abstract class RtaServletInitializer implements WebApplicationInitializer {
 
 	protected Log logger; // Don't initialize early
 

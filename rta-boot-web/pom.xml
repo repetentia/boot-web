@@ -17,12 +17,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>2.3.0.RELEASE</version>
-				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.2.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.repetentia.commons</groupId>
+			<artifactId>commons-utils</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 		<!-- 필요 디펜던시 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -40,47 +49,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>kr.co.ydns</groupId>
-			<artifactId>grip.license</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<!-- 그립 디펜던시 -->
-		<dependency>
-			<groupId>kr.co.ydns</groupId>
-			<artifactId>grip.core</artifactId>
-			<version>1.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>mysql</groupId>
-					<artifactId>mysql-connector-java</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.oracle</groupId>
-					<artifactId>ojdbc7</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.security</groupId>
-					<artifactId>spring-security-config</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.security</groupId>
-					<artifactId>spring-security-taglibs</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.security</groupId>
-					<artifactId>spring-security-web</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.security</groupId>
-					<artifactId>spring-security-core</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax</groupId>
-					<artifactId>javaee-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -148,9 +116,9 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>startup</module>
+		<module>web-startup</module>
 		<module>web-starter</module>
-		<module>web-code</module>
+
 		<module>web-user</module>
 		<module>web-settings</module>
 	</modules>
