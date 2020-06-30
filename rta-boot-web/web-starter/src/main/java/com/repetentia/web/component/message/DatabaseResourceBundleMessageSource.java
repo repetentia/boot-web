@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class DatabaseResourceBundleMessageSource extends AbstractMessageSource implements InitializingBean, ReLoadable {
+	private static final String id = "messageSource";
 	private SqlSession sqlSession;
 	private LocaleMessageHolder localeMessageHolder;
 
@@ -52,6 +53,6 @@ public class DatabaseResourceBundleMessageSource extends AbstractMessageSource i
 
 	@Override
 	public String id() {
-		return "messageSource";
+		return id;
 	}
 }

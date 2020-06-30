@@ -10,6 +10,8 @@
 	<description>repetentia.com 을 제작하기 위한 스타터</description>
 	<properties>
 		<java-version>1.8</java-version>
+		<repetentia-web-version>1.0.0</repetentia-web-version>
+		<mybatis-spring-boot-starter-version>2.1.3</mybatis-spring-boot-starter-version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -25,8 +27,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.repetentia.commons</groupId>
+			<artifactId>commons-web</artifactId>
+			<version>${repetentia-web-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.repetentia.commons</groupId>
 			<artifactId>commons-utils</artifactId>
-			<version>1.0.0</version>
+			<version>${repetentia-web-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
@@ -64,7 +71,7 @@
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.1.3</version>
+			<version>${mybatis-spring-boot-starter-version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>

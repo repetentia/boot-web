@@ -14,20 +14,28 @@ import org.springframework.core.env.PropertySourcesPropertyResolver;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
-public class DatabasePropertySourcePlaceHolderConfigurer extends PlaceholderConfigurerSupport implements EnvironmentAware {
+import com.repetentia.support.reload.ReLoadable;
+
+public class DatabasePropertySourcePlaceHolderConfigurer extends PlaceholderConfigurerSupport implements EnvironmentAware, ReLoadable {
+	private static final String id = "propertySource";
     public static final String LOCAL_PROPERTIES_PROPERTY_SOURCE_NAME = "localProperties";
     public static final String ENVIRONMENT_PROPERTIES_PROPERTY_SOURCE_NAME = "environmentProperties";
+    
     @Nullable
     private MutablePropertySources propertySources;
     private Environment env;
-
+    private DatabasePropertyLoader databasePropertyLoader; 
     @Override
     public void setEnvironment(Environment env) {
         this.env = env;
-        DatabasePropertyLoader DatabasePropertyLoader = new DatabasePropertyLoader(env);
-        DatabasePropertyLoader.loadDataBasePropertySource();
+        load();
     }
 
+    private void load() {
+    	if (databasePropertyLoader == null) databasePropertyLoader = new DatabasePropertyLoader(env);
+    	databasePropertyLoader.loadDataBasePropertySource();
+    }
+    
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         if (this.propertySources == null) {
@@ -58,5 +66,15 @@ public class DatabasePropertySourcePlaceHolderConfigurer extends PlaceholderConf
     protected void processProperties(ConfigurableListableBeanFactory beanFactory, Properties props) {
         throw new UnsupportedOperationException("Call processProperties(ConfigurableListableBeanFactory, ConfigurablePropertyResolver) instead");
     }
+
+	@Override
+	public void reload() {
+		load();
+	}
+
+	@Override
+	public String id() {
+		return id;
+	}
 
 }

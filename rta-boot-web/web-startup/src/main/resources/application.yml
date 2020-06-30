@@ -1,0 +1,26 @@
+# 공통 설정 
+rta:
+  version: 1.0.0
+  title: repetentia.com admin common component 
+--- # 실서버환경
+spring:
+ profiles:
+  active: prod
+--- # 개발서버환경
+spring:
+  profiles:
+    active: dev
+--- # 로컬환경
+spring:
+  profiles:
+    active: local
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://mariadb.repetentia.com:3333/rta
+    username: rtauser
+    password: r2p2t2nt1@
+rta:
+  server:
+    jndi: jdbc/rta/mariadb
+#    license: 1f6f6b0c750f34144eaeb25541b1e476a204b9e5795c7ff82804207f61bac0c74dd3b907a6952d295ce1f2ff20d809ede82aaee0952bbe2102cedc7710f5bfd685fcebbb85bad29bd96dc2ef318fed592159e5ef356d186c0ec9bcd31d5d3682
+#    info :

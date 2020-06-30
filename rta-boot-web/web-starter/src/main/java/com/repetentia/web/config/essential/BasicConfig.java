@@ -8,6 +8,7 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import com.repetentia.support.log.Marker;
+import com.repetentia.web.component.message.DatabaseResourceBundleMessageSource;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,14 +20,14 @@ public class BasicConfig {
     	this.sqlSession = sqlSession;
     }
 
-//    @Bean(name = "messageSource")
-//    public MessageSource messagSource() {
-//        DatabaseResourceBundleMessageSource databaseMessageSource = new DatabaseResourceBundleMessageSource();
-//        databaseMessageSource.setSqlSession(sqlSession);
-//        log.info(Marker.BOOT_CONFIG, "- Initializing DatabaseResourceBundleMessageSource !!!");
-//        return databaseMessageSource;
-//    }
-//    
+    @Bean(name = "messageSource")
+    public MessageSource messagSource() {
+        DatabaseResourceBundleMessageSource databaseMessageSource = new DatabaseResourceBundleMessageSource();
+        databaseMessageSource.setSqlSession(sqlSession);
+        log.info(Marker.BOOT_CONFIG, "- Initializing DatabaseResourceBundleMessageSource !!!");
+        return databaseMessageSource;
+    }
+    
     @Bean
     public TaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
